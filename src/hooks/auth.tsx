@@ -2,8 +2,8 @@ import React, {
   createContext,
   useCallback,
   useContext,
-  useEffect,
   useState,
+  useEffect,
 } from 'react';
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -21,9 +21,9 @@ interface SignInCredentials {
 
 interface AuthContextData {
   user: object;
+  loading: boolean;
   signIn(credentials: SignInCredentials): Promise<void>;
   signOut(): void;
-  loading: boolean;
 }
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
@@ -45,8 +45,10 @@ const AuthProvider: React.FC = ({ children }) => {
 
       setLoading(false);
     }
+
     loadStoragedData();
   }, []);
+
   const signIn = useCallback(async ({ email, password }) => {
     const response = await api.post('sessions', {
       email,
@@ -64,13 +66,13 @@ const AuthProvider: React.FC = ({ children }) => {
   }, []);
 
   const signOut = useCallback(async () => {
-    await AsyncStorage.multiRemove(['@GoBarber:token', '@GoBarber:user']);
+    await AsyncStorage.multiRemove(['@GoBarber:user', '@GoBarber:token']);
 
     setData({} as AuthState);
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user: data.user, loading, signIn, signOut }}>
+    <AuthContext.Provider value={{ user: data.user, signIn, signOut, loading }}>
       {children}
     </AuthContext.Provider>
   );
