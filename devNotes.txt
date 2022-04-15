@@ -8,7 +8,7 @@ yarn add @unform/core @unform/mobile
 yarn add yup
 yarn add axios
 yarn add @react-native-community/async-storage
-
+yarn add @react-native-community/datetimepicker@2.4.0 //Erro na versão atualizada, fui de antiga.
 yarn add @types/styled-components -D
 Yarn add @types/react-native-vector-icons -D
 yarn add @types/react-native-iphone-x-helper -D
@@ -18,4 +18,20 @@ yarn add @types/yup -D
 Sempre que abrir o Emulador utilize : 
  adb reverse tcp:3333 tcp:3333
  para funcionar o http://localhost:3333
+ 
+
+###Retomando o projeto e instalando o ambiente de desenvolvimento####
+    - Segui os passos desse tutorial para instalar o Android Studio e configurar :
+        https://react-native.rocketseat.dev/android/linux/
+    - yarn global add expo-cli
+
+    Ao tentar rodar o projeto "yarn android" se ele der erro:
+    "error Failed to install the app. Make sure you have the Android development environment 
+    set up: https://reactnative.dev/docs/environment-setup. Run CLI with --verbose flag for more details."
+
+    - Quando tentei rodar o projeto pronto deu erro, segui o link: https://stackoverflow.com/questions/44446523/unable-to-load-script-from-assets-index-android-bundle-on-windows
+        criei a pasta assets em "android/app/src/assets"
+        adicionei no package.json o seguinte script:
+            "android-linux": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && react-native run-android",
+        Ao rodar funcionou ( depois disso o yarn android voltou a funcionar também )
  
