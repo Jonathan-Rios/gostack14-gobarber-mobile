@@ -8,11 +8,15 @@ yarn add @unform/core @unform/mobile
 yarn add yup
 yarn add axios
 yarn add @react-native-community/async-storage
-yarn add @react-native-community/datetimepicker@2.4.0 //Erro na versão atualizada, fui de antiga.
+yarn add @react-native-community/datetimepicker@2.4.0 //Erro na versão atualizada, utilizei a antiga da aula.
 yarn add @types/styled-components -D
 Yarn add @types/react-native-vector-icons -D
 yarn add @types/react-native-iphone-x-helper -D
 yarn add @types/yup -D
+yarn add date-fns
+yarn add react-native-image-picker@2.3.1 //Erro na versão atualizada, utilizei a antiga da aula.
+---- Doc adicional de config  //https://www.notion.so/Configurando-o-Image-Picker-para-o-Android-d1a4ec6ca7c34ad59e7a68ec0d2b2e19
+
 
 
 Sempre que abrir o Emulador utilize : 
