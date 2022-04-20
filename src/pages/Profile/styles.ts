@@ -12,6 +12,27 @@ export const BackButton = styled.TouchableOpacity`
   margin-top: 160px;
 `;
 
+export const Header = styled.View`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const LogOutButton = styled.TouchableOpacity`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  padding: 0 5px;
+`;
+
+export const LogOutButtonText = styled.Text`
+  font-size: 20px;
+  color: #ff9000;
+  padding: 0 2px 2px 2px;
+`;
+
 export const Title = styled.Text`
   font-size: 20px;
   color: #f4ede8;

@@ -16,7 +16,8 @@ yarn add @types/yup -D
 yarn add date-fns
 yarn add react-native-image-picker@2.3.1 //Erro na versão atualizada, utilizei a antiga da aula.
 ---- Doc adicional de config  //https://www.notion.so/Configurando-o-Image-Picker-para-o-Android-d1a4ec6ca7c34ad59e7a68ec0d2b2e19
-
+yarn add react-native-testing-library -D
+yarn add @testing-library/jest-native -D
 
 
 Sempre que abrir o Emulador utilize : 
@@ -39,3 +40,7 @@ Sempre que abrir o Emulador utilize :
             "android-linux": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && react-native run-android",
         Ao rodar funcionou ( depois disso o yarn android voltou a funcionar também )
  
+ ###Para rodar os testes, só rodar
+ yarn test // Se quiser ver o coverage add "--coverage"
+ Lembrando das configs existentes no package.json, e do arquivo src/setupTests.ts 
+ (o qual de uns erros, ignoraveis, que não foram abordados na aula)

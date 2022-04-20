@@ -23,7 +23,10 @@ import {
   BackButton,
   Title,
   Form,
+  Header,
   UserAvatarButton,
+  LogOutButton,
+  LogOutButtonText,
   UserAvatar,
 } from './styles';
 import { useAuth } from '../../hooks/auth';
@@ -40,6 +43,7 @@ const Profile: React.FC = () => {
   const { user, updateUser } = useAuth();
   const formRef = useRef<FormHandles>(null);
   const navigation = useNavigation();
+  const { signOut } = useAuth();
 
   const emailInputRef = useRef<TextInput>(null);
   const oldPasswordInputRef = useRef<TextInput>(null);
@@ -175,9 +179,13 @@ const Profile: React.FC = () => {
             <UserAvatarButton onPress={handleUpdateAvatar}>
               <UserAvatar source={{ uri: user.avatar_url }} />
             </UserAvatarButton>
-            <View>
+            <Header>
               <Title>Meu perfil</Title>
-            </View>
+              <LogOutButton onPress={signOut}>
+                <LogOutButtonText>Sair</LogOutButtonText>
+                <Icon name="log-out" size={24} color="#ff9000" />
+              </LogOutButton>
+            </Header>
             <Form initialData={user} ref={formRef} onSubmit={handleProfile}>
               <Input
                 autoCapitalize="words"
